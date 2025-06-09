@@ -83,7 +83,7 @@ function CaseStudies() {
             </Link>
           </div>
 
-          <div className="relative md:w-[50%] h-[150px] md:h-[400px] flex justify-center items-center">
+          <div className="relative md:w-[50%] h-[150px] md:h-[370px] flex justify-center items-center">
             {/* Radial Gradient Background */}
             <div
               className={`${cs.gradientClass} absolute w-[400px] h-[400px] scale-[3] right-0 rounded-full z-0`}

@@ -61,7 +61,7 @@ function Hero() {
                 {/* <div className='bg-gray-700 bg-opacity-50 rounded-full bg-transparent p-2 px-3 mt-4 border-2 border-gray-400'>
                 <ShinyText text="Book A Discovery Call" disabled={false} speed={3} className='text-base'/>
                 </div> */}
-                <div className='rounded-full mt-10 relative overflow-hidden p-3 px-5 bg-black hover:cursor-pointer text-base md:text-lg'>
+                <div className='rounded-full mt-10 relative overflow-hidden p-2 px-6 bg-black hover:cursor-pointer text-base'>
                     <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} duration={13} borderWidth={2} />
                     Book Discovery Call
                 </div>
