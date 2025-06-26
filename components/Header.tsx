@@ -63,7 +63,7 @@ function Header() {
   </div>
 
   {/* Mobile Nav Toggle */}
-  <div className="md:hidden flex justify-end items-center">
+  <div className="md:hidden flex justify-end items-center px-6">
     <button onClick={() => setIsMobileOpen(prev => !prev)}>
       {isMobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
     </button>
@@ -71,7 +71,7 @@ function Header() {
 
   {/* Mobile Nav */}
   {isMobileOpen && (
-    <nav className="md:hidden absolute top-full left-0 w-full mt-4 z-50">
+    <nav className="md:hidden absolute top-14  left-0 w-full mt-4 z-50">
       <ul className="flex flex-col gap-4 text-lg bg-black text-white p-6 rounded-xl backdrop-blur-2xl bg-opacity-5">
         {navItems.map((item) => (
           <li
