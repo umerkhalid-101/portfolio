@@ -92,18 +92,29 @@
 
 /* Hero section Backgrounds */
 
-.blob {
+
+
+ /* .blob {
   background: conic-gradient(from 0deg, #342eaa, #4D3685, #5b7788, #2e6e81, #0f5267, #4D3685, #64740f);
   animation: spinBlob 6s linear infinite alternate;
-}
+}  */
+
+ .blob {
+  background: conic-gradient(from 0deg, #366585, #2A3F4D, #112F38, #000000, #4D3685, #366585, #31196e, #342eaa);
+  animation: spinBlob 8s linear infinite alternate;
+} 
 
 @keyframes spinBlob {
   0% {
-    transform: rotate(0deg) scale(2);
+    transform: rotate(0deg) scale(2) translateX(0%);
+  }
+
+  50% {
+    transform: rotate(180deg) scale(4) translateX(10%);
   }
 
   100% {
-    transform: rotate(360deg) scale(4);
+    transform: rotate(360deg) scale(2) translateX(20%);
   }
 }
 
@@ -239,5 +250,39 @@
 @keyframes fadeIn {
   to {
     opacity: 1;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.floating-particle {
+  position: absolute;
+  border-radius: 9999px;
+  opacity: 0.3;
+  animation: floatRandom ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+
+@keyframes floatRandom {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(var(--xMove), var(--yMove)) rotate(var(--rotate));
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
   }
 }

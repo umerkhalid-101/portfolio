@@ -1,6 +1,5 @@
 import CaseStudies from '@/components/CaseStudies'
 import ExperienceSection from '@/components/Experience'
-import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import PhotographySection from '@/components/Photography'
 import Productdesigner from '@/components/Productdesigner'

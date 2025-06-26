@@ -1,10 +1,5 @@
 import React from 'react';
-import { ShimmerButton } from './magicui/shimmer-button';
-import ShinyText from './magicui/ShinyText';
-import { Button } from './ui/button';
-import { ShinyButton } from './magicui/shiny-button';
 import { ShineBorder } from './magicui/shine-border';
-import BlurText from './magicui/blurtext';
 import { AuroraText } from './magicui/aurora-text';
 
 function Hero() {
@@ -14,7 +9,7 @@ function Hero() {
             <div className="fixed inset-0 w-full h-[100vh] z-[-1]">
 
                 {/* Blurred Conic Gradient Background */}
-                <div className="absolute inset-0 w-full h-full flex items-center justify-center max-2xl:blur-[100px] blur-[150px]">
+                <div className="absolute inset-0 w-full h-full flex items-center justify-center blur-[50px] sm:blur-[70px] md:blur-[100px] 2xl:blur-[120px]">
                     <div className="rounded-full w-[80vw] h-[80vh] bg-black relative md:scale-[0.8] overflow-hidden">
                         <div className="blob absolute inset-0 w-full h-full" />
                     </div>
