@@ -1,6 +1,7 @@
 import React from 'react';
 import { ShineBorder } from './magicui/shine-border';
 import { AuroraText } from './magicui/aurora-text';
+import { Button } from './ui/button';
 
 function Hero() {
     return (
@@ -57,7 +58,7 @@ function Hero() {
                 </h1>
 
 
-                <AuroraText className='text-3xl md:text-5xl italic mt-5 font-light'>Product Designer </AuroraText>
+                <AuroraText className='text-3xl md:text-5xl italic mt-5 font-light' colors={["#FFFFFF", "#BABABA","#FFFFFF" ,"#808080", "#FFFFFF" ]}>Product Designer </AuroraText>
 
                 <p className='text-lg md:text-xl font-light md:mt-8 mt-8 text-gray-300 text-center'>Designing intuitive and impactful digital experiences.</p>
 
@@ -65,8 +66,8 @@ function Hero() {
                 <ShinyText text="Book A Discovery Call" disabled={false} speed={3} className='text-base'/>
                 </div> */}
                 <a href="https://calendly.com/umerkhalid141/30min" target='_blank'>
-                    <div className='font-light rounded-full mt-6 relative overflow-hidden p-3 px-6 bg-black hover:cursor-pointer text-base'>
-                        <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} duration={13} borderWidth={2} />
+                    <div className=' rounded-full mt-6 relative overflow-hidden font-normal p-3 px-6 bg-[#E6E6E6] hover:cursor-pointer text-base text-black'>
+                        <ShineBorder  duration={13} borderWidth={0} />
                         Book Discovery Call
                     </div>
                 </a>
