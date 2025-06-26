@@ -35,9 +35,9 @@ function ExperienceSection() {
         <BlurText
                 text="Experience"
                 delay={150}
-                animateBy="letters"
+                animateBy="words"
                 direction="top"
-                className="text-center mb-5 text-2xl md:text-4xl font-light font-roco"
+                className="text-center mb-5 text-2xl md:text-4xl font-medium"
             />
       <div className="flex flex-col divide-y divide-white/10">
         {experiences.map((exp, idx) => (

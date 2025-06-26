@@ -45,23 +45,31 @@ function Hero() {
 
             {/* Foreground Content */}
 
-            <div className='w-full container flex justify-center items-center flex-col max-2xl:min-h-[70vh] min-h-[500px]'>
+            <div className='w-full container flex justify-center items-center flex-col max-2xl:min-h-[100vh] min-h-[600px]'>
+                <h1 className="text-3xl md:text-6xl font-bold reveal-text">
+                    {"Hi, I'm Umer Khalid".split("").map((char, index) => (
+                        <span
+                            key={index}
+                            style={{
+                                animationDelay: `${index * 0.09}s`,
+                                display: "inline-block",
+                                whiteSpace: "pre",
+                            }}
+                        >
+                            {char === " " ? "\u00A0" : char}
+                        </span>
+                    ))}
+                </h1>
 
-                <BlurText
-                    text="Hi, I'm Umer Khalid"
-                    delay={150}
-                    animateBy="words"
-                    direction="top"
-                    className="text-3xl md:text-6xl font-bold font-roco"
-                />
-                 <AuroraText className='text-2xl md:text-5xl italic mt-5 font-black'>Product Designer </AuroraText>
+
+                <AuroraText className='text-2xl md:text-5xl italic mt-5 font-black'>Product Designer </AuroraText>
 
                 <p className='text-lg md:text-xl font-light md:mt-14 mt-8 text-gray-300 text-center'>Designing intuitive and impactful digital experiences.</p>
 
                 {/* <div className='bg-gray-700 bg-opacity-50 rounded-full bg-transparent p-2 px-3 mt-4 border-2 border-gray-400'>
                 <ShinyText text="Book A Discovery Call" disabled={false} speed={3} className='text-base'/>
                 </div> */}
-                <div className='rounded-full mt-10 relative overflow-hidden p-2 px-6 bg-black hover:cursor-pointer text-base'>
+                <div className='rounded-full mt-6 relative overflow-hidden p-2 px-6 bg-black hover:cursor-pointer text-base'>
                     <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} duration={13} borderWidth={2} />
                     Book Discovery Call
                 </div>

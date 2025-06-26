@@ -26,15 +26,15 @@ function Skills() {
             <BlurText
                 text="Skills"
                 delay={150}
-                animateBy="letters"
+                animateBy="words"
                 direction="top"
-                className="text-center mb-5 text-2xl md:text-4xl font-light font-roco"
+                className="text-center mb-5 text-2xl md:text-4xl font-medium"
             />
 
             <div className='flex flex-wrap flex-row justify-start gap-3 items-center'>
                 {skills.map(({ label, shineColor, duration }, key) => (
-                    <div key={key} className='relative overflow-hidden p-3 px-5 rounded-xl bg-black'>
-                        <ShineBorder shineColor={shineColor} borderWidth={2} duration={duration} />
+                    <div key={key} className='relative overflow-hidden p-3 px-5 rounded-xl bg-black hover:cursor-pointer'>
+                        <ShineBorder shineColor={["#ffffff58", "#dddddd60", "#f4f4f490"]} borderWidth={2} duration={duration} />
                         {label}
                     </div>
                 ))}

@@ -26,7 +26,7 @@ export function SlidingLogos() {
         delay={150}
         animateBy="words"
         direction="top"
-        className="text-center mx-auto mb-5 text-2xl md:text-4xl font-light font-roco"
+        className="text-center mx-auto mb-5 text-2xl md:text-4xl font-medium"
       />
      </div>
       <div

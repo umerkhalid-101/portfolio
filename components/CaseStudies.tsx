@@ -13,7 +13,7 @@ const caseStudies = [
     image: '/assets/cs_1.png',
     bgColor: '#0F151F',
     gradientClass: 'purple-radial-bg',
-    additionalClasses : "top-[30px]",
+    additionalClasses : "top-[25px]",
     url : "/projects/zewards"
   },
   {
@@ -25,7 +25,7 @@ const caseStudies = [
     image: '/assets/cs_2.png',
     bgColor: '#101820',
     gradientClass: 'blue-radial-bg',
-    additionalClasses : "top-[60px]",
+    additionalClasses : "top-[50px]",
     url : "/projects/folionomics"
   },
   {
@@ -37,7 +37,7 @@ const caseStudies = [
     image: '/assets/cs_3.png',
     bgColor: '#0F161F',
     gradientClass: 'red-radial-bg',
-    additionalClasses : "top-[90px]",
+    additionalClasses : "top-[75px]",
     url : "/projects/illumina"
   },
   {
@@ -49,7 +49,7 @@ const caseStudies = [
     image: '/assets/cs_4.svg',
     bgColor: '#101924',
     gradientClass: 'green-radial-bg',
-    additionalClasses : "top-[120px]",
+    additionalClasses : "top-[100px]",
     url : "/projects/jobbit"
   },
   {
@@ -61,7 +61,7 @@ const caseStudies = [
     image: '/assets/cs_5.svg',
     bgColor: '#0F151F',
     gradientClass: 'purple-radial-bg',
-    additionalClasses : "top-[150px]",
+    additionalClasses : "top-[125px]",
     url : "/projects/zewards-website"
   },
 ];

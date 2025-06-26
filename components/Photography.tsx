@@ -29,7 +29,7 @@ function PhotographySection() {
         delay={150}
         animateBy="words"
         direction="top"
-        className="text-center mb-5 text-2xl md:text-4xl font-light font-roco"
+        className="text-center mb-5 text-2xl md:text-4xl font-medium"
       />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {photos.map((photo, idx) => (

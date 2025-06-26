@@ -22,7 +22,7 @@ function Footer() {
                         delay={50}
                         animateBy="words"
                         direction="top"
-                        className="text-center mb-5 text-2xl md:text-4xl font-light font-roco"
+                        className="text-center mb-5 text-2xl md:text-4xl font-medium"
                     />
 
                     <BlurText
@@ -30,7 +30,7 @@ function Footer() {
                         delay={350}
                         animateBy="words"
                         direction="top"
-                        className="text-center mb-5 text-2xl md:text-4xl font-light font-roco"
+                        className="text-center mb-5 text-2xl md:text-4xl font-medium"
                     />
 
                    </div>
