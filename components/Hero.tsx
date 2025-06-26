@@ -46,7 +46,7 @@ function Hero() {
             {/* Foreground Content */}
 
             <div className='w-full container flex justify-center items-center flex-col max-2xl:min-h-[100vh] min-h-[600px]'>
-                <h1 className="text-3xl md:text-6xl font-bold reveal-text">
+                <h1 className="text-4xl md:text-6xl font-medium reveal-text font-satoshi">
                     {"Hi, I'm Umer Khalid".split("").map((char, index) => (
                         <span
                             key={index}
@@ -62,17 +62,19 @@ function Hero() {
                 </h1>
 
 
-                <AuroraText className='text-2xl md:text-5xl italic mt-5 font-black'>Product Designer </AuroraText>
+                <AuroraText className='text-3xl md:text-5xl italic mt-5 font-light'>Product Designer </AuroraText>
 
-                <p className='text-lg md:text-xl font-light md:mt-14 mt-8 text-gray-300 text-center'>Designing intuitive and impactful digital experiences.</p>
+                <p className='text-lg md:text-xl font-light md:mt-8 mt-8 text-gray-300 text-center'>Designing intuitive and impactful digital experiences.</p>
 
                 {/* <div className='bg-gray-700 bg-opacity-50 rounded-full bg-transparent p-2 px-3 mt-4 border-2 border-gray-400'>
                 <ShinyText text="Book A Discovery Call" disabled={false} speed={3} className='text-base'/>
                 </div> */}
-                <div className='rounded-full mt-6 relative overflow-hidden p-2 px-6 bg-black hover:cursor-pointer text-base'>
-                    <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} duration={13} borderWidth={2} />
-                    Book Discovery Call
-                </div>
+                <a href="https://calendly.com/umerkhalid141/30min" target='_blank'>
+                    <div className='font-light rounded-full mt-6 relative overflow-hidden p-3 px-6 bg-black hover:cursor-pointer text-base'>
+                        <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} duration={13} borderWidth={2} />
+                        Book Discovery Call
+                    </div>
+                </a>
             </div>
         </div>
     );

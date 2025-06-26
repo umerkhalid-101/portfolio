@@ -78,6 +78,7 @@ const config: Config = {
   		fontFamily: {
   			roco: [
   				'var(--font-roco)',
+  				'var(--font-satoshi)',
   				'sans-serif'
   			]
   		},

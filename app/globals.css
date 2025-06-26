@@ -9,6 +9,7 @@
 }
 
 @layer base {
+
   /* :root {
     --background: 0 0% 100%;
     --foreground: 20 14.3% 4.1%;
@@ -37,6 +38,7 @@
     --radius: 0.5rem;
   } */
   :root {
+    --font-satoshi: 'Satoshi', sans-serif;
     --background: 20 14.3% 4.1%;
     --foreground: 60 9.1% 97.8%;
     --card: 20 14.3% 4.1%;
@@ -62,6 +64,7 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
+
   .theme {
     --animate-shimmer-slide: shimmer-slide var(--speed) ease-in-out infinite alternate;
     --animate-spin-around: spin-around calc(var(--speed) * 2) infinite linear;
@@ -72,45 +75,53 @@
   * {
     @apply border-border;
   }
+
   body {
+    font-family: var(--font-satoshi);
     /* background: #000000;  fallback for old browsers */
-background: -webkit-linear-gradient(to left, #010008, #000000);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left, #010008, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    @apply  text-foreground;
+    background: -webkit-linear-gradient(to left, #010008, #000000);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #010008, #000000);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    @apply text-foreground;
+  }
+  p{
+    @apply font-light;
   }
 }
 
 /* Hero section Backgrounds */
 
 .blob {
-    background: conic-gradient(from 0deg, #342eaa, #4D3685, #5b7788, #2e6e81, #0f5267, #4D3685, #64740f);
-    animation: spinBlob 6s linear infinite alternate;
+  background: conic-gradient(from 0deg, #342eaa, #4D3685, #5b7788, #2e6e81, #0f5267, #4D3685, #64740f);
+  animation: spinBlob 6s linear infinite alternate;
 }
 
 @keyframes spinBlob {
-    0% {
-        transform: rotate(0deg) scale(2) ;
-    }
+  0% {
+    transform: rotate(0deg) scale(2);
+  }
 
-    100% {
-        transform: rotate(360deg) scale(4);
-    }
+  100% {
+    transform: rotate(360deg) scale(4);
+  }
 }
 
 .noise-texture {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.1'/%3E%3C/svg%3E");
-    background-size: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.1'/%3E%3C/svg%3E");
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 @layer base {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -118,22 +129,28 @@ background: linear-gradient(to left, #010008, #000000); /* W3C, IE 10+/ Edge, Fi
 
 @theme inline {
   @keyframes shimmer-slide {
-  to {
-    transform: translate(calc(100cqw - 100%), 0);
+    to {
+      transform: translate(calc(100cqw - 100%), 0);
     }
   }
+
   @keyframes spin-around {
-  0% {
-    transform: translateZ(0) rotate(0);
+    0% {
+      transform: translateZ(0) rotate(0);
     }
-  15%, 35% {
-    transform: translateZ(0) rotate(90deg);
+
+    15%,
+    35% {
+      transform: translateZ(0) rotate(90deg);
     }
-  65%, 85% {
-    transform: translateZ(0) rotate(270deg);
+
+    65%,
+    85% {
+      transform: translateZ(0) rotate(270deg);
     }
-  100% {
-    transform: translateZ(0) rotate(360deg);
+
+    100% {
+      transform: translateZ(0) rotate(360deg);
     }
   }
 }
@@ -147,12 +164,10 @@ background: linear-gradient(to left, #010008, #000000); /* W3C, IE 10+/ Edge, Fi
 
 /* Case Studies */
 .purple-radial-bg {
-  background: radial-gradient(
-    circle at 50% 50%,
-    rgba(129, 94, 243, 0.475),
-    rgba(48, 26, 107, 0.1),
-    transparent 100%
-  );
+  background: radial-gradient(circle at 50% 50%,
+      rgba(129, 94, 243, 0.475),
+      rgba(48, 26, 107, 0.1),
+      transparent 100%);
   filter: blur(10px);
   opacity: 0.6;
 }
@@ -160,34 +175,28 @@ background: linear-gradient(to left, #010008, #000000); /* W3C, IE 10+/ Edge, Fi
 
 
 .blue-radial-bg {
-  background: radial-gradient(
-    circle at 50% 50%,
-    #016a2079,
-    rgba(0, 28, 4, 0.1),
-    transparent 100%
-  );
+  background: radial-gradient(circle at 50% 50%,
+      #016a2079,
+      rgba(0, 28, 4, 0.1),
+      transparent 100%);
   filter: blur(10px);
   opacity: 0.6;
 }
 
 .green-radial-bg {
-  background: radial-gradient(
-    circle at 50% 50%,
-    #84e0cc89,
-    #0707001e,
-    transparent 100%
-  );
+  background: radial-gradient(circle at 50% 50%,
+      #84e0cc89,
+      #0707001e,
+      transparent 100%);
   filter: blur(20px);
   opacity: 0.6;
 }
 
 .red-radial-bg {
-  background: radial-gradient(
-    circle at 50% 50%,
-    #04589489,
-    rgba(48, 26, 107, 0.1),
-    transparent 100%
-  );
+  background: radial-gradient(circle at 50% 50%,
+      #04589489,
+      rgba(48, 26, 107, 0.1),
+      transparent 100%);
   filter: blur(10px);
   opacity: 0.6;
 }
@@ -199,6 +208,7 @@ background: linear-gradient(to left, #010008, #000000); /* W3C, IE 10+/ Edge, Fi
   0% {
     background-position: 200% 0;
   }
+
   100% {
     background-position: -200% 0;
   }
@@ -221,13 +231,13 @@ background: linear-gradient(to left, #010008, #000000); /* W3C, IE 10+/ Edge, Fi
 
 
 .reveal-text span {
-    opacity: 0;
-    display: inline-block;
-    animation: fadeIn 0.5s forwards;
+  opacity: 0;
+  display: inline-block;
+  animation: fadeIn 0.5s forwards;
 }
 
 @keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
+  to {
+    opacity: 1;
+  }
 }
