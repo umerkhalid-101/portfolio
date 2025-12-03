@@ -14,7 +14,7 @@ const experiences = [
   },
   {
     title: "Product Designer",
-    company: "Zewards / Zewst Business / Zewst Portal (Hauraki)",
+    company: "Hauraki",
     duration: "Aug 2023 - Jul 2024",
   },
   {
