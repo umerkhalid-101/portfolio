@@ -3,29 +3,29 @@ import BlurText from "./magicui/blurtext";
 
 const experiences = [
   {
-    title: "Design Lead",
-    company: "Gamma Labs",
-    duration: "Aug 2024 - Present",
+    title: "Lead Product Designer",
+    company: "Axion Dynamic",
+    duration: "Mar 2025 - Sep 2025",
   },
   {
-    title: "Lead UX/UI Designer",
-    company: "Hauraki",
-    duration: "Aug 2023 - Aug 2024",
+    title: "Product Designer",
+    company: "Folionomics",
+    duration: "Jul 2024 - Feb 2025",
   },
   {
-    title: "UX/UI Designer",
-    company: "Enlatics",
-    duration: "June 2023 - Aug 2023",
-  },
-  {
-    title: "Graphic Designer",
-    company: "MailMunch",
-    duration: "Oct 2021 - Jun 2023",
+    title: "Product Designer",
+    company: "Zewards / Zewst Business / Zewst Portal (Hauraki)",
+    duration: "Aug 2023 - Jul 2024",
   },
   {
     title: "User Experience Analyst",
-    company: "Salams",
-    duration: "May 2018 - Present",
+    company: "Salams (formerly Minder)",
+    duration: "May 2018 - Jan 2024",
+  },
+  {
+    title: "Product Designer",
+    company: "Truebill / Rocket Money",
+    duration: "Sep 2018 - Nov 2019",
   },
 ];
 
