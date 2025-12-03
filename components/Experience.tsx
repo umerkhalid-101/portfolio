@@ -8,12 +8,12 @@ const experiences = [
     duration: "Mar 2025 - Sep 2025",
   },
   {
-    title: "Product Designer",
+    title: "Lead Designer",
     company: "Folionomics",
     duration: "Jul 2024 - Feb 2025",
   },
   {
-    title: "Product Designer",
+    title: "Principle Product Designer",
     company: "Hauraki",
     duration: "Aug 2023 - Jul 2024",
   },
@@ -23,7 +23,7 @@ const experiences = [
     duration: "May 2018 - Jan 2024",
   },
   {
-    title: "Product Designer",
+    title: "Associate Product Designer",
     company: "Truebill / Rocket Money",
     duration: "Sep 2018 - Nov 2019",
   },
