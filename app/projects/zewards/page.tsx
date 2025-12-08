@@ -1,5 +1,6 @@
 'use client'
 
+import BlurText from '@/components/magicui/blurtext'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import React from 'react'
@@ -26,9 +27,18 @@ function Zewards() {
               </div>
 
               <div className="space-y-4">
-                <h1 className="font-roco text-3xl md:text-5xl lg:text-6xl leading-tight text-slate-50 drop-shadow-[0_8px_24px_rgba(15,23,42,0.6)]">
-                  Designing Zewards, a loyalty system for real world visits
-                </h1>
+                {/* hero heading with BlurText, styled like Folionomics */}
+                <div className="relative">
+                  <div className="pointer-events-none absolute -inset-6 bg-gradient-to-r from-violet-500/25 via-fuchsia-400/18 to-sky-400/25 blur-xl" />
+                  <BlurText
+                    text="Designing Zewards, a loyalty system for real world visits"
+                    className="relative font-roco text-3xl md:text-5xl lg:text-6xl leading-tight text-slate-50 drop-shadow-[0_8px_24px_rgba(15,23,42,0.8)]"
+                    delay={150}
+                    animateBy="words"
+                    direction="top"
+                  />
+                </div>
+
                 <p className="text-sm md:text-base text-slate-300 max-w-2xl">
                   I led product design across the consumer app, business app, and marketing site for Zewards, a loyalty
                   and cashback platform for real world merchants. The work focused on activation, clarity, and building
