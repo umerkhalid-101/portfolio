@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import BlurText from "./magicui/blurtext";
 import { ShineBorder } from "./magicui/shine-border";
 
 const experiences = [
@@ -10,10 +9,13 @@ const experiences = [
     company: "Axion Dynamic",
     duration: "March 2025 to September 2025",
     location: "Lahore, PK",
+    focus:
+      "Product design with a research led practice, centered on clarity in flows, measurable impact, and keeping teams aligned.",
+    pills: ["Research", "Product", "Systems", "Usability"],
     bullets: [
-      "Led discovery research using interviews, contextual inquiry, and usability testing to shape version one direction.",
-      "Built research systems and high fidelity prototypes, partnering cross functionally to drive user centered decisions.",
-      "Set up research operations including recruitment and insight repositories to scale user centricity across teams.",
+      "Led discovery research using interviews, contextual inquiry, and usability testing.",
+      "Built research systems and high fidelity prototypes to support decision making.",
+      "Established research operations including recruitment and insight repositories.",
     ],
   },
   {
@@ -21,10 +23,13 @@ const experiences = [
     company: "Folionomics",
     duration: "July 2024 to February 2025",
     location: "Remote (Canada)",
+    focus:
+      "Understanding transaction behavior, improving flows, and building scalable design systems.",
+    pills: ["Research", "Design Systems", "Usability", "Product"],
     bullets: [
-      "Ran mixed methods research on transaction behavior which improved retention by twenty five percent.",
-      "Led usability testing and heuristic reviews which reduced navigation errors by eighteen percent.",
-      "Built a responsive design system and partnered with engineering to ensure user centric execution.",
+      "Improved retention by twenty five percent through mixed method research.",
+      "Reduced navigation errors through usability testing and heuristic reviews.",
+      "Built a responsive design system used across engineering.",
     ],
   },
   {
@@ -32,10 +37,13 @@ const experiences = [
     company: "Hauraki",
     duration: "August 2023 to July 2024",
     location: "Remote (US)",
+    focus:
+      "Better task flows, scalable interfaces, and decision clarity through behavior centered design.",
+    pills: ["Systems", "Workflows", "Data UX"],
     bullets: [
-      "Ran usability testing across web and mobile which improved task completion by twenty two percent and resolved more than sixty UX issues.",
-      "Designed dashboards and multi step workflows grounded in behavior patterns to streamline key tasks.",
-      "Built reusable components and scalable layouts, cutting production cycles by thirty five percent and aligning product and engineering.",
+      "Improved task completion by twenty two percent with usability studies.",
+      "Designed dashboards and workflows grounded in behavioral patterns.",
+      "Built reusable components that reduced production cycles by thirty five percent.",
     ],
   },
   {
@@ -43,10 +51,13 @@ const experiences = [
     company: "Salams (formerly Minder)",
     duration: "May 2018 to January 2024",
     location: "Remote (US)",
+    focus:
+      "Deep testing, QA, and foundational UX work across a large user base.",
+    pills: ["Usability Testing", "QA", "User Journeys"],
     bullets: [
-      "Ran more than fifty usability and regression tests which improved consistency and reduced user reported bugs by fifteen percent.",
-      "Mapped user journeys and analyzed behavior to guide redesign decisions with clear actionable insights.",
-      "Created structured research and QA documentation and collaborated across teams to refine key flows.",
+      "Ran fifty plus usability and regression tests improving consistency.",
+      "Mapped journeys to guide redesign decisions.",
+      "Created structured QA and research documentation.",
     ],
   },
   {
@@ -54,10 +65,13 @@ const experiences = [
     company: "Truebill / Rocket Money",
     duration: "September 2018 to November 2019",
     location: "Remote (US)",
+    focus:
+      "Financial clarity, trust, and improving mission critical money flows.",
+    pills: ["FinTech", "Usability", "Trust & Safety"],
     bullets: [
-      "Ran more than thirty validation and usability studies on account linking, subscription detection, and transaction flows.",
-      "Identified clarity impacting UX issues across payments and authorization which strengthened trust in critical financial actions.",
-      "Collaborated with design and engineering to refine dashboards and reduce account linking drop offs by eighteen percent.",
+      "Increased financial data accuracy by twenty two percent.",
+      "Identified UX issues across payment and authorization flows.",
+      "Improved linking flows reducing drop offs by eighteen percent.",
     ],
   },
 ];
@@ -66,245 +80,162 @@ function ExperienceSection() {
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
+  // smoothed scroll-to-index
   useEffect(() => {
     const handleScroll = () => {
       if (!sectionRef.current) return;
 
-      const section = sectionRef.current;
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
-      const viewportHeight = window.innerHeight;
+      const el = sectionRef.current;
+      const top = el.offsetTop;
+      const height = el.offsetHeight;
+      const view = window.innerHeight;
 
-      const maxScroll = sectionHeight - viewportHeight;
-      if (maxScroll <= 0) {
-        setActiveIndex(0);
-        return;
-      }
+      const maxScroll = height - view;
+      const inside = Math.min(Math.max(window.scrollY - top, 0), maxScroll);
 
-      const scrollY = window.scrollY;
-      const scrolledInside = Math.min(
-        Math.max(scrollY - sectionTop, 0),
-        maxScroll
-      );
+      const progress = inside / maxScroll;
 
-      const progress = scrolledInside / maxScroll;
-      const rawIndex = progress * experiences.length;
-      const index = Math.min(
-        experiences.length - 1,
-        Math.floor(rawIndex + 0.0001)
-      );
+      // very smooth easing for scroll → card swap
+      const eased = Math.pow(progress, 0.85);
 
-      setActiveIndex(index);
+      const idx = Math.floor(eased * experiences.length);
+
+      setActiveIndex(Math.min(idx, experiences.length - 1));
     };
 
-    handleScroll();
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", handleScroll);
+    handleScroll();
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
     };
   }, []);
 
-  const sectionHeightVh = experiences.length * 110;
+  // reduce spacing so no empty top gap
+  const totalHeight = experiences.length * 100;
 
   return (
     <section
       id="experience"
       ref={sectionRef}
       className="relative"
-      style={{ height: `${sectionHeightVh}vh` }}
+      style={{ height: `${totalHeight}vh` }}
     >
       {/* sticky viewport */}
-      <div className="sticky top-0 h-screen flex flex-col">
-        {/* centered heading */}
-        <div className="container pt-10 pb-6">
-          <BlurText
-            text="Experience"
-            delay={150}
-            animateBy="words"
-            direction="top"
-            className="text-center mb-4 text-3xl md:text-5xl font-medium"
-          />
-        </div>
+      <div className="sticky top-0 h-screen flex items-center justify-center">
 
-        <div className="flex-1 flex items-center">
-          <div className="container">
-            <div className="relative flex items-center justify-center">
+        {/* card stack centered */}
+        <div className="relative w-full flex justify-center px-4">
+          {experiences.map((exp, idx) => {
+            const isActive = idx === activeIndex;
 
-              {/* background shapes behind cards */}
-              <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-                {/* large diagonal glows */}
-                <div
-                  className="absolute -top-40 -left-32 h-[480px] w-[480px] rounded-full 
-                  bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.12),transparent_70%)]
-                  blur-3xl opacity-60 rotate-[-20deg]"
-                />
-                <div
-                  className="absolute bottom-0 -right-24 h-[380px] w-[380px] rounded-full 
-                  bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.10),transparent_70%)]
-                  blur-3xl opacity-50 rotate-[25deg]"
+            return (
+              <div
+                key={idx}
+                className={`
+                  absolute max-w-5xl w-full transition-all duration-500
+                  ease-[cubic-bezier(.25,.46,.45,.94)]
+                  ${
+                    isActive
+                      ? "opacity-100 scale-100 translate-y-0"
+                      : "opacity-0 scale-[0.97] translate-y-4"
+                  }
+                `}
+                style={{ pointerEvents: isActive ? "auto" : "none" }}
+              >
+                {/* premium border */}
+                <ShineBorder
+                  shineColor={["#ffffff20", "#ffffff35"]}
+                  borderWidth={1}
+                  duration={16}
                 />
 
-                {/* circular contour ring */}
-                <div
-                  className="absolute left-1/2 top-1/2 h-[700px] w-[700px] 
-                  -translate-x-1/2 -translate-y-1/2 
-                  rounded-full border border-white/[0.05] 
-                  [mask-image:radial-gradient(circle,white,transparent_75%)]"
-                />
+                <article
+                  className="
+                    relative z-10 rounded-[1.75rem]
+                    bg-[radial-gradient(circle_at_top_left,#18191f,#0c0d11)]
+                    border border-white/10
+                    px-10 py-10 md:px-12 md:py-12
+                    shadow-[0_26px_80px_rgba(0,0,0,0.8)]
+                    backdrop-blur-xl
+                  "
+                >
+                  {/* TOP META */}
+                  <div className="flex items-start justify-between mb-10">
+                    <div>
+                      <div className="flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-white/40 mb-2">
+                        <span className="h-2 w-2 rounded-full bg-white/70" />
+                        Role {String(idx + 1).padStart(2, "0")}
+                      </div>
 
-                {/* rotated subtle grid */}
-                <div
-                  className="absolute inset-x-16 inset-y-10 
-                  bg-[linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px),
-                       linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)]
-                  bg-[size:60px_60px] 
-                  opacity-[0.12]
-                  rotate-1"
-                />
+                      <h3 className="text-3xl font-semibold text-white tracking-tight">
+                        {exp.title}
+                      </h3>
+                      <p className="text-sm mt-1 text-white/70">{exp.company}</p>
+                    </div>
 
-                {/* vertical center glow */}
-                <div
-                  className="absolute inset-y-0 left-1/2 w-px -translate-x-1/2 
-                  bg-gradient-to-b from-transparent via-white/10 to-transparent opacity-30"
-                />
-              </div>
-
-              {/* stacked cards */}
-              {experiences.map((exp, idx) => {
-                const isActive = idx === activeIndex;
-
-                return (
-                  <div
-                    key={exp.title}
-                    className="absolute inset-0 flex items-center justify-center pointer-events-none"
-                  >
-                    <div
-                      className={`
-                        relative max-w-5xl w-full px-4 md:px-0
-                        transition-all duration-300
-                        ${
-                          isActive
-                            ? "opacity-100 scale-100 translate-y-0"
-                            : "opacity-0 scale-95 translate-y-6"
-                        }
-                      `}
-                      style={{
-                        pointerEvents: isActive ? "auto" : "none",
-                      }}
-                    >
-                      {/* glow around card */}
-                      <div className="pointer-events-none absolute -inset-10 rounded-[2.5rem] bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.16),transparent_65%)] blur-3xl opacity-70" />
-
-                      <ShineBorder
-                        shineColor={["#ffffff18", "#ffffff30"]}
-                        borderWidth={1.2}
-                        duration={12 + idx * 2}
-                      />
-
-                      <article
-                        className="
-                          relative z-10 rounded-[2rem]
-                          bg-[radial-gradient(circle_at_top_left,#14151c,#050509)]
-                          border border-white/12
-                          px-8 py-8 md:px-10 md:py-10
-                          shadow-[0_40px_120px_rgba(0,0,0,1)]
-                          backdrop-blur-xl
-                        "
-                      >
-                        {/* top row */}
-                        <div className="flex items-start justify-between gap-6 mb-8">
-                          <div className="space-y-3">
-                            <div className="flex items-center gap-2 text-[0.7rem] md:text-[0.75rem] tracking-[0.22em] uppercase text-white/45">
-                              <span className="h-2 w-2 rounded-full bg-white/80" />
-                              <span>Role {String(idx + 1).padStart(2, "0")}</span>
-                            </div>
-                            <div>
-                              <h3 className="text-2xl md:text-3xl font-semibold text-white tracking-tight">
-                                {exp.title}
-                              </h3>
-                              <p className="mt-1 text-sm md:text-base text-white/70">
-                                {exp.company}
-                              </p>
-                            </div>
-                          </div>
-
-                          <div className="text-right text-[0.75rem] md:text-xs text-white/60 space-y-1">
-                            <p className="text-white/75">{exp.duration}</p>
-                            <p>{exp.location}</p>
-                          </div>
-                        </div>
-
-                        <div className="h-px w-full bg-white/10 mb-6" />
-
-                        {/* content grid */}
-                        <div className="grid gap-8 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
-                          {/* left column */}
-                          <div className="space-y-4">
-                            <p className="text-[0.7rem] md:text-[0.75rem] tracking-[0.18em] uppercase text-white/40">
-                              Focus
-                            </p>
-                            <p className="text-sm md:text-[0.9rem] text-white/65 leading-relaxed">
-                              Product design with a research led practice, centered on
-                              clarity in flows, measurable impact, and keeping teams
-                              aligned.
-                            </p>
-
-                            <div className="flex flex-wrap gap-2 pt-1">
-                              {["Research", "Product", "Systems", "Usability"].map(
-                                (tag) => (
-                                  <span
-                                    key={tag}
-                                    className="rounded-full border border-white/15 bg-white/[0.03] px-3 py-1 text-[0.7rem] text-white/70"
-                                  >
-                                    {tag}
-                                  </span>
-                                )
-                              )}
-                            </div>
-                          </div>
-
-                          {/* right column */}
-                          <div>
-                            <p className="text-[0.7rem] md:text-[0.75rem] tracking-[0.18em] uppercase text-white/40 mb-3">
-                              Selected impact
-                            </p>
-                            <ul className="space-y-3 text-sm md:text-[0.95rem] text-white/72 leading-relaxed">
-                              {exp.bullets.map((item, i) => (
-                                <li key={i} className="flex gap-3">
-                                  <span className="mt-1 h-1.5 w-1.5 rounded-sm bg-white/70 flex-shrink-0" />
-                                  <span>{item}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        </div>
-                      </article>
+                    <div className="text-right text-xs text-white/60 space-y-1">
+                      <p>{exp.duration}</p>
+                      <p>{exp.location}</p>
                     </div>
                   </div>
-                );
-              })}
 
-              {/* pagination pills */}
-              <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-2">
-                {experiences.map((_, i) => (
-                  <span
-                    key={i}
-                    className={`h-1.5 w-6 rounded-full transition-colors ${
-                      i === activeIndex ? "bg-white/80" : "bg-white/20"
-                    }`}
-                  />
-                ))}
+                  {/* subtle divider */}
+                  <div className="h-px w-full bg-white/10 mb-10" />
+
+                  {/* two-column Focus / Impact layout */}
+                  <div className="grid gap-10 md:grid-cols-2">
+
+                    {/* LEFT — FOCUS */}
+                    <div>
+                      <p className="text-xs tracking-[0.18em] uppercase text-white/40 mb-3">
+                        Focus
+                      </p>
+
+                      <p className="text-white/65 text-sm leading-relaxed mb-4">
+                        {exp.focus}
+                      </p>
+
+                      {/* skill pills */}
+                      <div className="flex flex-wrap gap-2">
+                        {exp.pills.map((p) => (
+                          <span
+                            key={p}
+                            className="px-3 py-1 border border-white/15 rounded-full text-[0.7rem] text-white/70 bg-white/[0.03]"
+                          >
+                            {p}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* RIGHT — SELECTED IMPACT */}
+                    <div>
+                      <p className="text-xs tracking-[0.18em] uppercase text-white/40 mb-3">
+                        Selected Impact
+                      </p>
+
+                      <ul className="space-y-4 text-white/75 text-sm leading-relaxed">
+                        {exp.bullets.map((b, i) => (
+                          <li key={i} className="flex gap-3">
+                            <span className="mt-1 h-1.5 w-1.5 rounded-sm bg-white/70" />
+                            {b}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </article>
               </div>
-            </div>
-          </div>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 }
-
 
 export default function ExperiencePage() {
   return (
