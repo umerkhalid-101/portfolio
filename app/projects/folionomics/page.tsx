@@ -103,7 +103,10 @@ function Folionomics() {
           </div>
         </section>
 
-        {/* PRODUCT SNAPSHOT – MOVED BANNER IMAGE */}
+        {/* BRANDING SECTION */}
+        <BrandSection />
+
+        {/* PRODUCT SNAPSHOT */}
         <section className="py-12 md:py-16 max-w-6xl mx-auto">
           <div className="grid gap-8 lg:grid-cols-[1.1fr_1.1fr] items-center">
             {/* text side */}
@@ -445,6 +448,146 @@ function ScreenCard({ src, alt, label }: ScreenCardProps) {
   )
 }
 
+/* BRANDING SECTION AND HELPERS */
+
+type ColorRowProps = {
+  name: string
+  hex: string
+  role: string
+}
+
+function ColorRow({ name, hex, role }: ColorRowProps) {
+  return (
+    <div className="space-y-1">
+      <div
+        className="w-full h-10 md:h-11 rounded-full shadow-[0_16px_40px_rgba(0,0,0,0.8)] border border-[#182718]"
+        style={{ backgroundColor: hex }}
+      />
+      <div className="flex flex-col">
+        <span className="text-sm text-white">{name}</span>
+        <span className="text-[11px] text-[#A4B1AA]">
+          {hex} · {role}
+        </span>
+      </div>
+    </div>
+  )
+}
+
+type TypeCardProps = {
+  label: string
+  name: string
+  usage: string
+  className?: string
+}
+
+function TypeCard({ label, name, usage, className }: TypeCardProps) {
+  return (
+    <div className="rounded-3xl border border-[#1F2B21] bg-[#050806] px-5 py-4 flex flex-col gap-1">
+      <p className="text-[10px] uppercase tracking-[0.18em] text-[#B7F8C9]">
+        {label}
+      </p>
+      <p className={`text-base md:text-lg text-white ${className ?? ''}`}>
+        {name}
+      </p>
+      <p className="text-[11px] text-[#9CAAB5]">
+        {usage}
+      </p>
+    </div>
+  )
+}
+
+function BrandSection() {
+  return (
+    <section className="mt-8 max-w-6xl mx-auto">
+      <div className="rounded-3xl border border-[#111A13] bg-gradient-to-br from-[#050908] via-[#020504] to-[#050908] px-5 md:px-8 py-7 md:py-9">
+        <p className="text-[10px] md:text-xs uppercase tracking-[0.22em] text-[#B7F8C9] mb-5">
+          Branding
+        </p>
+
+        <div className="grid gap-8 md:gap-10 md:grid-cols-[1.25fr_1.75fr] items-start">
+          {/* LEFT logo card */}
+          <div className="rounded-[32px] bg-[#202321] px-6 md:px-8 py-7 md:py-8 shadow-[0_22px_60px_rgba(0,0,0,0.8)] flex flex-col gap-6">
+            <div className="space-y-1">
+              <h3 className="text-white text-xl md:text-2xl font-semibold">
+                FolioNomics
+              </h3>
+              <p className="text-xs md:text-sm text-[#C6D1C9] max-w-xs">
+                Calm, analytical, and strategy first. Built for portfolio thinking.
+              </p>
+            </div>
+
+            {/* logo and wordmark row without circle */}
+           <div className="flex flex-col gap-3 md:gap-4">
+              {/* Logo heading */}
+              <p className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-[#B7F8C9]">
+                Logo
+              </p>
+
+              {/* Logo itself */}
+              <div className="flex items-center">
+                <Image
+                  src="/assets/cs_2.png"
+                  alt="FolioNomics logo"
+                  width={240}     // adjust size here
+                  height={64}
+                  className="object-contain"
+                />
+              </div>
+            </div>
+
+
+            <p className="text-xs md:text-sm text-[#C6D1C9] max-w-md">
+              The brand keeps surfaces soft and neutral so charts, risk, and performance are the only loud elements.
+            </p>
+
+            <div className="flex gap-3 mt-1">
+              <div className="h-14 w-14 rounded-xl bg-[#217346]" />
+              <div className="h-14 w-14 rounded-xl bg-[#4CA775]" />
+              <div className="h-14 w-14 rounded-xl bg-[#DFEFE6]" />
+              <div className="h-14 w-14 rounded-xl bg-[#F6F6F6]" />
+            </div>
+          </div>
+
+          {/* RIGHT colors and typography */}
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <p className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-[#B7F8C9]">
+                Color palette
+              </p>
+              <div className="space-y-4">
+                <ColorRow name="Folio green" hex="#217346" role="Primary accent" />
+                <ColorRow name="Soft mint" hex="#DFEFE6" role="Support tint" />
+                <ColorRow name="Paper neutral" hex="#F6F6F6" role="Light surfaces" />
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              <p className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-[#B7F8C9]">
+                Typography
+              </p>
+              <div className="grid gap-4 md:grid-cols-2">
+                <TypeCard
+                  label="Display"
+                  name="Roc Grotesk"
+                  usage="Headlines and key portfolio views."
+                  className="font-roco"
+                />
+                <TypeCard
+                  label="Body"
+                  name="Inter"
+                  usage="Body copy and interface labels."
+                  className="font-sans"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+
 /* PHASES */
 
 type PhasePillProps = {
@@ -489,8 +632,8 @@ function PhaseContent({ phase }: PhaseContentProps) {
           <li>Where they see the full picture of risk and runway today.</li>
         </ul>
         <p className="mt-2">
-          Almost everyone had a clear mental model of their portfolio, but almost nobody had a product that reflected
-          it. That gap became the starting point.
+          Almost everyone had a clear mental model of their portfolio, but almost nobody had a product that reflected it.
+          That gap became the starting point.
         </p>
       </div>
     )
