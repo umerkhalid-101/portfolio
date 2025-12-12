@@ -27,7 +27,7 @@ function Zewards() {
               </div>
 
               <div className="space-y-4">
-                {/* hero heading with BlurText, styled like Folionomics */}
+                {/* hero heading with BlurText */}
                 <div className="relative">
                   <div className="pointer-events-none absolute -inset-6 bg-gradient-to-r from-violet-500/25 via-fuchsia-400/18 to-sky-400/25 blur-xl" />
                   <BlurText
@@ -152,6 +152,9 @@ function Zewards() {
             />
           </div>
         </SectionShell>
+
+        {/* BRANDING */}
+        <BrandSection />
 
         {/* SECTION: PRODUCT ECOSYSTEM VISUAL */}
         <SectionShell eyebrow="Product ecosystem" title="One loyalty model expressed through three experiences.">
@@ -668,6 +671,172 @@ function ConsumerGoalCard({ label, title, body }: ConsumerGoalCardProps) {
       </p>
       <p className="text-[11px] md:text-xs text-slate-300">
         {body}
+      </p>
+    </div>
+  )
+}
+
+/* BRANDING SECTION */
+
+function BrandSection() {
+  return (
+    <section className="pt-12 md:pt-16">
+      <div className="mb-5 space-y-2">
+        <p className="text-[11px] uppercase tracking-[0.22em] text-violet-300">
+          Branding
+        </p>
+        <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold text-slate-50 max-w-3xl">
+          How Zewards looks and feels in one place.
+        </h2>
+      </div>
+
+      <div className="rounded-3xl border border-slate-800 bg-gradient-to-br from-[#050510] via-[#05000C] to-[#020314] px-5 md:px-7 py-6 md:py-8 shadow-[0_26px_90px_rgba(0,0,0,0.9)]">
+        <div className="grid gap-8 md:gap-10 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1.3fr)] items-start">
+          {/* Left: logo and tone */}
+          <div className="rounded-3xl bg-slate-950/90 border border-slate-800 px-5 md:px-7 py-6 md:py-7 space-y-5 shadow-[0_22px_70px_rgba(0,0,0,0.9)]">
+            <p className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-slate-400">
+              Logo
+            </p>
+
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center">
+                {/* update this src to your real logo asset */}
+                <Image
+                  src="/assets/cs_5.svg"
+                  alt="Zewards logo"
+                  width={220}
+                  height={60}
+                  className="object-contain"
+                />
+              </div>
+              <p className="text-xs md:text-sm text-slate-300 max-w-md">
+                Zewards presents itself with a calm, confident wordmark. Color and motion come from rewards and
+                progress, not from the logo shouting at people.
+              </p>
+            </div>
+
+            <div className="pt-2 space-y-2">
+              <p className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-slate-400">
+                Brand tone
+              </p>
+              <p className="text-xs md:text-sm text-slate-200">
+                The brand aims for bank level clarity with neighborhood warmth so it feels at home in coffee shops,
+                supermarkets, and salons without looking like a heavy finance tool.
+              </p>
+            </div>
+          </div>
+
+          {/* Right: colors and type */}
+          <div className="space-y-7">
+            {/* Colors */}
+            <div className="space-y-3">
+              <p className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-slate-400">
+                Color palette
+              </p>
+              <div className="grid gap-3 md:grid-cols-3">
+                <BrandColorSwatch
+                  name="Zewards purple"
+                  hex="#6E36A7"
+                  role="Primary brand color"
+                />
+                <BrandColorSwatch
+                  name="Lavender accent"
+                  hex="#9D6BD1"
+                  role="Secondary accent"
+                />
+                <BrandColorSwatch
+                  name="Midnight background"
+                  hex="#0B0912"
+                  role="Dark surfaces"
+                />
+                <BrandColorSwatch
+                  name="Soft card surface"
+                  hex="#F8F6FB"
+                  role="Light UI surfaces"
+                />
+                <BrandColorSwatch
+                  name="Subtle border"
+                  hex="#D4CBDD"
+                  role="Neutral borders"
+                />
+                <BrandColorSwatch
+                  name="Mauve highlight"
+                  hex="#A87C9E"
+                  role="Highlight elements"
+                />
+              </div>
+            </div>
+
+            {/* Typography */}
+            <div className="space-y-3">
+              <p className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-slate-400">
+                Typography
+              </p>
+              <div className="grid gap-4 md:grid-cols-2">
+                <TypeCard
+                  label="Display"
+                  name="Poppins Bold"
+                  usage="Headlines, hero copy, and key promotional moments."
+                  className="font-poppins-bold"
+                />
+                <TypeCard
+                  label="Body"
+                  name="Inter"
+                  usage="Body text, labels, and system UI."
+                  className="font-sans"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+type BrandColorSwatchProps = {
+  name: string
+  hex: string
+  role: string
+}
+
+function BrandColorSwatch({ name, hex, role }: BrandColorSwatchProps) {
+  return (
+    <div className="space-y-2 text-xs md:text-sm">
+      <div
+        className="w-full h-16 md:h-20 rounded-2xl border border-slate-800 shadow-[0_18px_55px_rgba(0,0,0,0.9)]"
+        style={{ backgroundColor: hex }}
+      />
+      <div className="flex flex-col">
+        <span className="text-slate-100 font-medium">
+          {name}
+        </span>
+        <span className="text-slate-400 text-[11px] uppercase tracking-[0.16em]">
+          {hex} · {role}
+        </span>
+      </div>
+    </div>
+  )
+}
+
+type TypeCardProps = {
+  label: string
+  name: string
+  usage: string
+  className?: string
+}
+
+function TypeCard({ label, name, usage, className }: TypeCardProps) {
+  return (
+    <div className="rounded-2xl border border-slate-800 bg-slate-950/90 px-4 py-3 space-y-1.5 shadow-[0_18px_55px_rgba(0,0,0,0.9)]">
+      <p className="text-[10px] uppercase tracking-[0.18em] text-slate-400">
+        {label}
+      </p>
+      <p className={`text-slate-50 text-base md:text-lg ${className ?? ''}`}>
+        {name}
+      </p>
+      <p className="text-[11px] md:text-xs text-slate-300">
+        {usage}
       </p>
     </div>
   )
