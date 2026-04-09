@@ -139,7 +139,6 @@ function ExperienceSection() {
     };
   }, []);
 
-  const activeExp = experiences[activeIndex];
   const sectionHeightVh = experiences.length * 110;
 
   return (
@@ -185,13 +184,8 @@ function ExperienceSection() {
           <div className="container px-4 md:px-6">
             <div className="relative flex items-center justify-center" style={{ minHeight: "420px" }}>
 
-              {/* Ambient background glow — changes with accent */}
-              <div
-                className="pointer-events-none absolute inset-0 -z-10 transition-all duration-700"
-                style={{
-                  background: `radial-gradient(ellipse 60% 50% at 20% 30%, rgba(${activeExp.accentRgb}, 0.07), transparent 70%)`,
-                }}
-              />
+              {/* Static dark ambient glow */}
+              <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_60%_50%_at_20%_30%,rgba(255,255,255,0.03),transparent_70%)]" />
 
               {experiences.map((exp, idx) => {
                 const isActive = idx === activeIndex;
@@ -210,13 +204,7 @@ function ExperienceSection() {
                   >
                     <div className="max-w-5xl w-full">
                       {/* Card */}
-                      <div
-                        className="relative rounded-[1.75rem] overflow-hidden shadow-[0_48px_120px_rgba(0,0,0,0.95)]"
-                        style={{
-                          background: `radial-gradient(ellipse 80% 60% at 0% 0%, rgba(${exp.accentRgb}, 0.09) 0%, #08090d 55%)`,
-                          border: `1px solid rgba(${exp.accentRgb}, 0.18)`,
-                        }}
-                      >
+                      <div className="relative rounded-[1.75rem] overflow-hidden shadow-[0_48px_120px_rgba(0,0,0,0.95)] bg-[#08090d] border border-white/[0.08]">
                         {/* Top accent stripe */}
                         <div
                           className="h-[2px] w-full"
