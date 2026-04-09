@@ -36,7 +36,7 @@ function Footer() {
                     </div>
                     {/* CTA */}
 
-                    <a href="https://calendly.com/umerkhalid141/30min" target="_blank" className="flex justify-center items-center">
+                    <a href="https://calendly.com/umerkhalid141/30min" target="_blank" rel="noreferrer noopener" className="flex justify-center items-center">
                         <div className='relative p-3 px-5 rounded-full bg-black max-w-[300px] z-[10]'>
                             <ShineBorderGlow shineColor={["#24378b", "#2774cd50"]} borderWidth={2} duration={10} />
                             Book Discovery Call
@@ -46,12 +46,12 @@ function Footer() {
 
 
                     {/* Subtext */}
-                    <a href="https://calendly.com/umerkhalid141/30min" target="_blank">
+                    <a href="https://calendly.com/umerkhalid141/30min" target="_blank" rel="noreferrer noopener">
                         <div className="flex justify-center items-center mt-6 gap-2">
                             <p className="text-sm text-white/70">
                                 Schedule a call with me
                             </p>
-                            <img src="/assets/umar.avif" alt="" className="w-[30px] h-[30px] rounded-full" />
+                            <img src="/assets/umar.avif" alt="Umer Khalid profile photo" className="w-[30px] h-[30px] rounded-full" />
                         </div>
                     </a>
                 </div>
@@ -60,9 +60,9 @@ function Footer() {
                 <div className="border-t border-white/10 mt-16 pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-white/60">
                     <p>© {date} Umer Khalid. All Rights Reserved.</p>
                     <div className="flex gap-6 mt-4 md:mt-0">
-                        <a href="https://www.linkedin.com/in/umar-khalid1" target="_blank" className="hover:text-white">Linkedin</a>
-                        <a href="https://www.instagram.com/umar_khalid1" target="_blank" className="hover:text-white">Instagram</a>
-                        <a href="mailto:umerkhalid141@gmail.com" target="_blank" className="hover:text-white">Mail</a>
+                        <a href="https://www.linkedin.com/in/umar-khalid1" target="_blank" rel="noreferrer noopener" className="hover:text-white">Linkedin</a>
+                        <a href="https://www.instagram.com/umar_khalid1" target="_blank" rel="noreferrer noopener" className="hover:text-white">Instagram</a>
+                        <a href="mailto:umerkhalid141@gmail.com" className="hover:text-white">Mail</a>
                     </div>
                 </div>
             </div>

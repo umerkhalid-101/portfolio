@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import React from 'react'
 
-function illumina() {
+function Illumina() {
   return (
     <div className='bg-[#000514] w-full text-[#D1DAE0]'>
       <div className='container'>
@@ -16,7 +16,7 @@ function illumina() {
 
         {/* Image after title */}
         <div className="w-full h-[200px] md:h-[600px] relative overflow-hidden rounded-2xl">
-          <Image src="/assets/projects/il_3.svg" alt="Folionomics" fill className="object-cover" />
+          <Image src="/assets/projects/il_3.svg" alt="Illumina Technologies" fill className="object-cover" />
         </div>
 
         {/* Sidebar div */}
@@ -65,10 +65,10 @@ function illumina() {
           {/* comparison */}
         <div className='flex flex-col md:flex-row gap-6 my-16 max-w-[80rem]'>
          <div className="md:w-[50%]">
-            <img src="/assets/projects/il_1.svg" alt="Folionomics" className='w-full rounded-xl'/>
+            <img src="/assets/projects/il_1.svg" alt="Illumina Technologies" className='w-full rounded-xl'/>
           </div>
          <div className="md:w-[50%]">
-            <img src="/assets/projects/il_4.svg" alt="Folionomics" className='w-full rounded-xl'/>
+            <img src="/assets/projects/il_4.svg" alt="Illumina Technologies" className='w-full rounded-xl'/>
           </div>
         </div>
 
@@ -98,7 +98,7 @@ function illumina() {
 
          {/* Image */}
          <div className="w-full h-[200px] md:h-[600px] relative overflow-hidden rounded-2xl">
-          <Image src="/assets/projects/il_1.svg" alt="Folionomics" fill className="object-cover" />
+          <Image src="/assets/projects/il_1.svg" alt="Illumina Technologies" fill className="object-cover" />
         </div>
 
      
@@ -113,4 +113,4 @@ function illumina() {
   )
 }
 
-export default illumina
+export default Illumina
