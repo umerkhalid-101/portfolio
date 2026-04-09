@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import BlurText from "./magicui/blurtext";
+import { motion } from "framer-motion";
 
 const photos = [
   {
@@ -22,8 +25,6 @@ const photos = [
 function PhotographySection() {
   return (
     <div className="container my-24" id="hobbies">
-
-
       <BlurText
         text="Photography as a hobby"
         delay={150}
@@ -33,7 +34,18 @@ function PhotographySection() {
       />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {photos.map((photo, idx) => (
-          <div key={idx} className="group">
+          <motion.div
+            key={idx}
+            className="group"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{
+              duration: 0.65,
+              delay: idx * 0.15,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+          >
             <div className="overflow-hidden rounded-xl h-[500px]">
               <img
                 src={photo.image}
@@ -41,11 +53,25 @@ function PhotographySection() {
                 className="w-full h-full object-cover object-center transition-transform duration-500 ease-in-out transform group-hover:scale-105 group-hover:brightness-110"
               />
             </div>
-            <p className="mt-4 text-sm text-white/70">{photo.date}</p>
-            <h3 className="font-semibold text-white mt-1 text-lg">
+            <motion.p
+              className="mt-4 text-sm text-white/70"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: idx * 0.15 + 0.3 }}
+            >
+              {photo.date}
+            </motion.p>
+            <motion.h3
+              className="font-semibold text-white mt-1 text-lg"
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: idx * 0.15 + 0.4 }}
+            >
               {photo.title}
-            </h3>
-          </div>
+            </motion.h3>
+          </motion.div>
         ))}
       </div>
     </div>

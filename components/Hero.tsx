@@ -1,7 +1,11 @@
+'use client';
+
 import React from 'react';
 import { ShineBorder } from './magicui/shine-border';
 import { AuroraText } from './magicui/aurora-text';
-import { Button } from './ui/button';
+import { motion } from 'framer-motion';
+
+const easeOut = [0.16, 1, 0.3, 1];
 
 function Hero() {
     return (
@@ -40,14 +44,13 @@ function Hero() {
             </div>
 
             {/* Foreground Content */}
-
             <div className='w-full container flex justify-center items-center flex-col max-2xl:min-h-[100vh] min-h-[600px]'>
                 <h1 className="text-4xl md:text-6xl font-medium reveal-text font-satoshi">
                     {"Hi, I'm Umer Khalid".split("").map((char, index) => (
                         <span
                             key={index}
                             style={{
-                                animationDelay: `${index * 0.09}s`,
+                                animationDelay: `${index * 0.06}s`,
                                 display: "inline-block",
                                 whiteSpace: "pre",
                             }}
@@ -57,20 +60,35 @@ function Hero() {
                     ))}
                 </h1>
 
+                <motion.div
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, delay: 1.3, ease: easeOut }}
+                >
+                    <AuroraText className='text-3xl md:text-5xl italic mt-5 font-light' colors={["#FFFFFF", "#BABABA", "#FFFFFF", "#808080", "#FFFFFF"]}>Product Designer </AuroraText>
+                </motion.div>
 
-                <AuroraText className='text-3xl md:text-5xl italic mt-5 font-light' colors={["#FFFFFF", "#BABABA","#FFFFFF" ,"#808080", "#FFFFFF" ]}>Product Designer </AuroraText>
+                <motion.p
+                    className='text-lg md:text-xl font-light md:mt-8 mt-8 text-gray-300 text-center'
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, delay: 1.6, ease: easeOut }}
+                >
+                    Designing intuitive and impactful digital experiences.
+                </motion.p>
 
-                <p className='text-lg md:text-xl font-light md:mt-8 mt-8 text-gray-300 text-center'>Designing intuitive and impactful digital experiences.</p>
-
-                {/* <div className='bg-gray-700 bg-opacity-50 rounded-full bg-transparent p-2 px-3 mt-4 border-2 border-gray-400'>
-                <ShinyText text="Book A Discovery Call" disabled={false} speed={3} className='text-base'/>
-                </div> */}
-                <a href="https://calendly.com/umerkhalid141/30min" target='_blank'>
-                    <div className=' rounded-full mt-6 relative overflow-hidden font-normal p-3 px-6 bg-[#E6E6E6] hover:cursor-pointer text-base text-black'>
-                        <ShineBorder  duration={13} borderWidth={0} />
-                        Book Discovery Call
-                    </div>
-                </a>
+                <motion.div
+                    initial={{ opacity: 0, y: 16, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ duration: 0.7, delay: 1.85, ease: easeOut }}
+                >
+                    <a href="https://calendly.com/umerkhalid141/30min" target="_blank" rel="noreferrer noopener">
+                        <div className='rounded-full mt-6 relative overflow-hidden font-normal p-3 px-6 bg-[#E6E6E6] hover:cursor-pointer text-base text-black hover:scale-105 transition-transform duration-300'>
+                            <ShineBorder duration={13} borderWidth={0} />
+                            Book Discovery Call
+                        </div>
+                    </a>
+                </motion.div>
             </div>
         </div>
     );

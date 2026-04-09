@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils";
 import { Marquee } from "./magicui/marquee";
-import { div } from "motion/react-client";
 import Image from "next/image";
 import BlurText from "./magicui/blurtext";
 
@@ -44,9 +43,8 @@ export function SlidingLogos() {
               <Image
                 src={logo}
                 alt="logo"
-                layout="responsive"
-                width={0}
-                height={0}
+                width={60}
+                height={60}
                 className="rounded-[13px] hover:shadow-md hover:shadow-gray-600"
               />
             </div>
@@ -55,10 +53,10 @@ export function SlidingLogos() {
 
         {/* Fading overlays to visually blend edges with noisy background */}
         <div className="pointer-events-none absolute inset-y-0 left-0 w-[10%]" style={{
-          background: "linear-gradient(to right, rgba(YourBgColorHere,1), rgba(YourBgColorHere,0))",
+          background: "linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0))",
         }} />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-[10%]" style={{
-          background: "linear-gradient(to left, rgba(YourBgColorHere,1), rgba(YourBgColorHere,0))",
+          background: "linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0))",
         }} />
       </div>
     </div>

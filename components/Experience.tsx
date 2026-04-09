@@ -128,6 +128,22 @@ function ExperienceSection() {
           />
         </div>
 
+        {/* progress dots */}
+        <div className="flex justify-center gap-2 pb-2">
+          {experiences.map((_, idx) => (
+            <div
+              key={idx}
+              className="transition-all duration-500 rounded-full"
+              style={{
+                width: idx === activeIndex ? "24px" : "6px",
+                height: "6px",
+                backgroundColor: idx === activeIndex ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.2)",
+                transitionTimingFunction: "cubic-bezier(0.16,1,0.3,1)",
+              }}
+            />
+          ))}
+        </div>
+
         <div className="flex-1 flex items-center">
           <div className="container">
             <div className="relative flex items-center justify-center">
@@ -182,14 +198,15 @@ function ExperienceSection() {
                     <div
                       className={`
                         relative max-w-5xl w-full px-4 md:px-0
-                        transition-all duration-300
+                        transition-all duration-500
                         ${
                           isActive
                             ? "opacity-100 scale-100 translate-y-0"
-                            : "opacity-0 scale-95 translate-y-6"
+                            : "opacity-0 scale-[0.97] translate-y-8"
                         }
                       `}
                       style={{
+                        transitionTimingFunction: "cubic-bezier(0.16,1,0.3,1)",
                         pointerEvents: isActive ? "auto" : "none",
                       }}
                     >

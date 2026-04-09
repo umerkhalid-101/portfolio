@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import React from 'react'
 
-function zewards() {
+function ZewardsWebsite() {
   return (
     <div className='bg-[#14051b] w-full text-[#D1DAE0]'>
       <div className='container'>
@@ -17,7 +17,7 @@ function zewards() {
 
         {/* Image after title */}
         <div className="w-full h-[200px] md:h-[600px] relative overflow-hidden rounded-2xl">
-          <Image src="/assets/projects/zw_1.svg" alt="Folionomics" fill className="object-cover" />
+          <Image src="/assets/projects/zw_1.svg" alt="Zewards platform" fill className="object-cover" />
         </div>
 
         {/* Sidebar div */}
@@ -71,7 +71,7 @@ function zewards() {
 
         {/* image */}
         <div className="w-full h-[200px] md:h-[600px] my-16 relative overflow-hidden rounded-2xl">
-          <Image src="/assets/projects/zw_2.svg" alt="Folionomics" fill className="object-cover" />
+          <Image src="/assets/projects/zw_2.svg" alt="Zewards platform" fill className="object-cover" />
         </div>
 
         {/* Research & Insight */}
@@ -106,7 +106,7 @@ function zewards() {
 
         {/* Image */}
         <div className="w-full h-[200px] md:h-[600px] relative overflow-hidden rounded-2xl">
-          <Image src="/assets/projects/zw_3.svg" alt="Folionomics" fill className="object-cover" />
+          <Image src="/assets/projects/zw_3.svg" alt="Zewards platform" fill className="object-cover" />
         </div>
 
 
@@ -148,4 +148,4 @@ function zewards() {
   )
 }
 
-export default zewards
+export default ZewardsWebsite

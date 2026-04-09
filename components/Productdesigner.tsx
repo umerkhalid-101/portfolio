@@ -3,6 +3,9 @@
 import React from 'react'
 import { ShinyButton } from './magicui/shiny-button'
 import BlurText from './magicui/blurtext'
+import { motion } from 'framer-motion'
+
+const easeOut = [0.16, 1, 0.3, 1]
 
 function Productdesigner() {
   return (
@@ -16,16 +19,27 @@ function Productdesigner() {
 
       <div className="container relative">
         {/* section label */}
-        <div className="flex items-center gap-3 mb-8 md:mb-10">
+        <motion.div
+          className="flex items-center gap-3 mb-8 md:mb-10"
+          initial={{ opacity: 0, y: -16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.5, ease: easeOut }}
+        >
           <span className="h-px w-10 bg-gradient-to-r from-violet-400 via-fuchsia-400 to-sky-400" />
           <p className="text-[11px] md:text-xs uppercase tracking-[0.22em] text-slate-400">
             Behind the case studies
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid gap-10 md:gap-14 lg:grid-cols-[minmax(0,2.1fr)_minmax(0,1.3fr)] items-start">
           {/* LEFT: headline + story */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.7, ease: easeOut }}
+          >
             {/* headline */}
             <div className="relative mb-4 md:mb-6">
               <div className="pointer-events-none absolute -inset-5 bg-gradient-to-r from-violet-500/25 via-fuchsia-500/18 to-sky-500/22 blur-xl" />
@@ -106,10 +120,16 @@ function Productdesigner() {
                 Design Systems &amp; IA
               </ShinyButton>
             </div>
-          </div>
+          </motion.div>
 
           {/* RIGHT: clean, scannable profile */}
-          <aside className="relative">
+          <motion.aside
+            className="relative"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.7, delay: 0.15, ease: easeOut }}
+          >
             <div className="absolute -left-6 top-0 bottom-0 hidden md:block">
               <div className="h-full w-px bg-gradient-to-b from-violet-400/80 via-fuchsia-400/60 to-sky-400/70 rounded-full" />
             </div>
@@ -145,7 +165,7 @@ function Productdesigner() {
                 </div>
               </div>
             </div>
-          </aside>
+          </motion.aside>
         </div>
       </div>
     </section>

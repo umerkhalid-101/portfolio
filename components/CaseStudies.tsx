@@ -1,8 +1,9 @@
-// components/CaseStudies.tsx
+"use client";
 
 import React from "react";
 import Link from "next/link";
 import { ShinyButton } from "./magicui/shiny-button";
+import { motion } from "framer-motion";
 
 const caseStudies = [
   {
@@ -51,6 +52,8 @@ const caseStudies = [
   },
 ];
 
+const easeOut = [0.16, 1, 0.3, 1];
+
 function CaseStudies() {
   return (
     <section
@@ -59,7 +62,13 @@ function CaseStudies() {
     >
       <div className="grid gap-10 lg:grid-cols-[0.9fr_1.7fr]">
         {/* Left rail – stays fixed while scrolling the right side */}
-        <div className="lg:sticky lg:top-28 self-start space-y-6">
+        <motion.div
+          className="lg:sticky lg:top-28 self-start space-y-6"
+          initial={{ opacity: 0, x: -32 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7, ease: easeOut }}
+        >
           <div className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-1 text-[11px] uppercase tracking-[0.25em] text-slate-300">
             Selected work
           </div>
@@ -88,13 +97,17 @@ function CaseStudies() {
           <div className="hidden lg:block pt-6">
             <div className="h-40 w-px bg-gradient-to-b from-[#F15050] via-white/30 to-transparent" />
           </div>
-        </div>
+        </motion.div>
 
-        {/* Right side – tall “bands” per project */}
+        {/* Right side – tall "bands" per project */}
         <div className="space-y-10 md:space-y-14">
           {caseStudies.map((cs, index) => (
-            <article
+            <motion.article
               key={cs.title}
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.65, delay: index * 0.08, ease: easeOut }}
               className="relative overflow-hidden rounded-[32px] border border-white/10 bg-gradient-to-br from-white/5 via-[#05070A] to-black/80 p-[1px] shadow-[0_40px_120px_rgba(0,0,0,0.9)]"
             >
               {/* Inner card */}
@@ -150,7 +163,7 @@ function CaseStudies() {
                   </div>
                 </div>
 
-                {/* Right: image “panel” */}
+                {/* Right: image "panel" */}
                 <div className="relative z-10 w-full md:w-[45%] lg:w-[40%] flex items-center">
                   <div className="relative w-full rounded-3xl border border-white/12 bg-black/40 backdrop-blur-md overflow-hidden">
                     {/* angled highlight */}
@@ -166,7 +179,7 @@ function CaseStudies() {
                   </div>
                 </div>
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
       </div>
